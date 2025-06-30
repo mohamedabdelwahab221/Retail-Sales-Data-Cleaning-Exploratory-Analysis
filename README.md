@@ -166,6 +166,8 @@ city_mapping_title = {
 ```python
 orphan_r_cutomer_df = pd.merge(monthly_transactions_df, customers_by_store_df, how='left')
 orphan_r_store_df = pd.merge(monthly_transactions_df, stores_by_city_df, how='left')
+cust_orphan = orphan_r_cutomer_df[orphan_r_cutomer_df['join_date'].isna()]['custID'].values
+store_orphan = orphan_r_store_df[orphan_r_store_df['Size'].isna()]['custID'].values
 ```
 
 **Purpose**: Identify transactions that lack corresponding customer or store records
